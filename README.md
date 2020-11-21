@@ -4,6 +4,12 @@
 
 - Fyyur is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.
 
+## Helping Links
+- Starter code taken from udacity [repository](https://github.com/udacity/FSND/tree/master/projects/01_fyyur/starter_code).
+- First of All the main helping resource was from the Udacity API course itself and by applying what we have learned.
+- I am Getting help from a Previous Project but not a palagrism and many more links and websites, and I learned a lot through this project:
+- [Previous Project](https://github.com/mind1990/fyyur)
+
 ## Overview
 
 - This app is nearly complete and capable of doing the following, if not more, using a PostgreSQL database:
