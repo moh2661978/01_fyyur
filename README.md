@@ -13,7 +13,7 @@
 
 ## Tech Stack (Dependencies)
 
-### 1. Backend Dependencies
+### Backend Dependencies
 Our tech stack will include the following:
  * **virtualenv** as a tool to create isolated Python environments
  * **SQLAlchemy ORM** to be our ORM library of choice
@@ -30,7 +30,7 @@ pip install Flask-Migrate
 ```
 > **Note** - If we do not mention the specific version of a package, then the default latest stable package will be installed. 
 
-### 2. Frontend Dependencies
+### Frontend Dependencies
 You must have the **HTML**, **CSS**, and **Javascript** with [Bootstrap 3](https://getbootstrap.com/docs/3.4/customize/) for our website's frontend. Bootstrap can only be installed by Node Package Manager (NPM). Therefore, if not already, download and install the [Node.js](https://nodejs.org/en/download/). Windows users must run the executable as an Administrator, and restart the computer after installation. After successfully installing the Node, verify the installation as shown below.
 ```
 node -v
@@ -83,7 +83,7 @@ Highlight folders:
 
 ## Development Setup
 
-1. **Create an empty repository in your Github account online. To change the remote repository path in your local repository, use the commands below:**
+**Create an empty repository in your Github account online. To change the remote repository path in your local repository, use the commands below:**
 ```
 git remote -v 
 git remote remove origin 
@@ -97,7 +97,7 @@ git commit -m "your comment"
 git push -u origin master
 ```
 
-2. **Initialize and activate a virtualenv using:**
+**Initialize and activate a virtualenv using:**
 ```
 python -m virtualenv env
 source env/bin/activate
@@ -109,18 +109,18 @@ In Windows, the `env` does not have a `bin` directory. Therefore, you'd use the 
 source env/Scripts/activate
 
 
-1. **Install the dependencies:**
+**Install the dependencies:**
 ```
 pip install -r requirements.txt
 ```
 
-2. **Run the development server:**
+**Run the development server:**
 ```
 env FLASK_APP=app.py FLASK_DEBUG=true flask run
 python3 app.py
 ```
 
-3. **Verify on the Browser**<br>
+**Verify on the Browser**<br>
 Navigate to project homepage [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000)
 
 ## Description
