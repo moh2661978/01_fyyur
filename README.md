@@ -114,11 +114,15 @@ source env/Scripts/activate
 pip install -r requirements.txt
 ```
 
-5. **Run the development server:**
+2. **Run the development server:**
 ```
 env FLASK_APP=app.py FLASK_DEBUG=true flask run
 python3 app.py
 ```
 
-6. **Verify on the Browser**<br>
+3. **Verify on the Browser**<br>
 Navigate to project homepage [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000)
+
+## Description
+- The code in this repository is meant to satisfy the project # 1 rubric of the Web Developer Advanced Track.
+- This is a Fyyur Application.
