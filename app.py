@@ -115,93 +115,7 @@ def index():
 #  Venues
 #  ----------------------------------------------------------------
 
-@app.route('/venues')
-def venues():
-  # TODO: replace with real venues data.
-  #num_shows should be aggregated based on number of upcoming shows per venue.
-    areas = db.session.query(Venue.city, Venue.state).distinct()
-    data = []
 
-    for venue in areas:
-        venue = dict(zip(('city', 'state'), venue))
-        venue['venues'] = []
-        for venue_data in Venue.query.filter_by(
-            city=venue['city'],
-            state=venue['state']
-        ).all():
-            shows = Show.query.filter_by(
-                venue_id=venue_data.id
-            ).all()
-            venues_data = {
-                'id': venue_data.id,
-                'name': venue_data.name,
-                'num_upcoming_shows': len(shows)
-            }
-            venue['venues'].append(venues_data)
-        data.append(venue)
-
-    return render_template('pages/venues.html', areas=data)
-
-
-@app.route('/venues/search', methods=['POST'])
-def search_venues():
-  # TODO: implement search on artists with partial string search. Ensure it is case-insensitive.
-  # seach for Hop should return "The Musical Hop".
-  # search for "Music" should return "The Musical Hop" and "Park Square Live Music & Coffee"
-
-    search_term = request.form.get('search_term', None)
-
-    venues = Venue.query.filter(
-        Venue.name.ilike('%{}%'.format(search_term))).all()
-
-    count_venues = len(venues)
-
-    response = {
-        'cout': count_venues,
-        'data': venues
-    }
-
-    return render_template('pages/search_venues.html', results=response, search_term=request.form.get('search_term', ''))
-
-
-@app.route('/venues/<int:venue_id>')
-def show_venue(venue_id):
-  # shows the venue page with the given venue_id
-    venue = Venue.query.filter_by(id=venue_id).first()
-
-    # upcoming_shows = [
-    # show for show in Show.query.filter(
-    # Show.start_time > datetime.datetime.now(),
-    # Show.venue_id == Show.id).all()
-    # ]
-    # past_shows = [
-    # show for show in Show.query.filter(
-    # Show.start_time < datetime.datetime.now(), Show.venue_id == Show.id
-    # ).all()
-    # ]
-
-  # TODO: replace with real venue data from the venues table, using venue_id
-    data = {
-        'id': venue.id,
-        'name': venue.name,
-        'genres': [venue.genres],
-        'city': venue.city,
-        'state': venue.state,
-        'address': venue.address,
-        'phone': venue.phone,
-        'image_link': venue.image_link,
-        'facebook_link': venue.facebook_link,
-        'website': venue.website,
-        'seeking_talent': venue.seeking_talent,
-        'seeking_description': venue.seeking_description,
-        # 'upcoming_shows': upcoming_shows,
-        # 'past_shows': past_shows,
-        # 'upcoming_shows_count': len(upcoming_shows),
-        # 'past_shows_count': len(past_shows),
-
-    }
-
-    return render_template('pages/show_venue.html', venue=data)
 
 #  Create Venue
 #  ----------------------------------------------------------------
@@ -329,16 +243,6 @@ def show_artist(artist_id):
   # shows the venue page with the given venue_id
   # TODO: replace with real venue data from the venues table, using venue_id
     artist = Artist.query.get(artist_id)
-
-    # upcoming_shows = [
-    # show for show in Show.query.filter(
-    #   Show.start_time > datetime.datetime.now(),
-    #   Show.artist_id == Show.artist_id).all()]
-    # past_shows = [
-    #   show for show in Show.query.filter(
-    #   Show.start_time < datetime.datetime.now(),
-    #   Show.artist_id == Show.id).all()
-    # ]
 
     data = {
         'id': artist.id,
